@@ -14,6 +14,9 @@ namespace BusinessLogic
             if (ssn == null)
                 return false;
 
+            if (ssn.Length > 9 && (ssn[3] != '-' && ssn[6] != '-'))
+                return false;
+
             ssn = ssn.Trim(new char[] { '-' });
 
             if (ssn.Length != 9)
