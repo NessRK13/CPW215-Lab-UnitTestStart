@@ -11,7 +11,20 @@ namespace BusinessLogic
         /// <returns></returns>
         public static bool IsSsn(string ssn)
         {
-            throw new NotImplementedException();
+            if (ssn == null)
+                return false;
+
+            ssn = ssn.Trim(new char[] { '-' });
+
+            if (ssn.Length != 9)
+                return false;
+            foreach (char c in ssn)
+            {
+                if (!char.IsDigit(c))
+                    return false;
+            }
+
+            return true;
         }
 
         /// <summary>
