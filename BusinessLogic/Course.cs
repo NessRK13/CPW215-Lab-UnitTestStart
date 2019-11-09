@@ -7,6 +7,7 @@ namespace BusinessLogic
     public class Course
     {
         private byte _credit;
+        private string _cname;
 
         public Course(string courseName)
         {
@@ -23,7 +24,17 @@ namespace BusinessLogic
         /// <summary>
         /// The name of the course
         /// </summary>
-        public string CourseName { get; set; }
+        public string CourseName 
+        { 
+            get => _cname;
+            set
+            {
+                if (value != null)
+                    _cname = value;
+                else
+                    throw new ArgumentNullException();
+            } 
+        }
 
         /// <summary>
         /// Number of credits for the course
